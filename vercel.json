@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "builds": [
+        {
+        "src": "server.js",
+        "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+        "src": "/(.*)",
+        "dest": "server.js"
+        }
+    ],
+	"installCommand": "npm install mongoose@^8.4.1 express@^4.19.2 multer@^1.4.5",
+	"buildCommand": ""
+    }
