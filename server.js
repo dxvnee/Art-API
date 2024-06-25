@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const creoRoute = require('./routes/creo.route.js');
+const artRoute = require('./routes/art.route.js');
 // const ngrok = require('ngrok');
 
 
@@ -12,13 +12,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
-app.use('/api/creo', creoRoute);
+app.use('/api/art', artRoute);
+
+app.get('/', (req, res) => {
+    res.send('Art API running...');
+});
 
 
-mongoose.connect("mongodb+srv://dxvnee:DTuzSPD1ip0vDr1C@creopediadb.cdylyrm.mongodb.net/Creo-API?retryWrites=true&w=majority&appName=CreopediaDB", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://dxvnee:DTuzSPD1ip0vDr1C@artpediadb.cdylyrm.mongodb.net/Art?retryWrites=true&w=majority&appName=CreopediaDB", { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Connected to database!');
-        const PORT = process.env.PORT || 3000;
+        const PORT = process.env.PORT || 3800;
         app.listen(PORT, () => {
             console.log('Server started on port 3000');
 

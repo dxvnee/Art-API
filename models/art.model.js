@@ -2,32 +2,32 @@ const { time } = require('console');
 const mongoose = require('mongoose');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-const CreoSchema = mongoose.Schema(
+const ArtSchema = mongoose.Schema(
     {
-        userId : {
-            type: String,
-            required: [true, 'Please add a user id'],
-        },
-
-        name: {
+        deskripsi: {
             type: String,
             required: [true, 'Please add a name'],
         },
 
-        element: {
+        alamat: {
             type: String,
             required: true,
         }, 
         
-        size: {
+        harga: {
             type: String,
             required: true,
         },
 
-        imageId: {
+        gambar: {
             type: String,
             required: true,
         },
+
+        auth: {
+            type: String,
+            required: true,
+        }
 
         
     },
@@ -36,7 +36,7 @@ const CreoSchema = mongoose.Schema(
     }
 )
 
-CreoSchema.plugin(AutoIncrement, { inc_field: 'id'});
-const Creo = mongoose.model("Creo", CreoSchema);
+ArtSchema.plugin(AutoIncrement, { inc_field: 'id'});
+const Art = mongoose.model("Art", ArtSchema);
 
-module.exports = Creo;
+module.exports = Art;
