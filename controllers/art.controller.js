@@ -27,7 +27,7 @@ const getArts = async (req,res) => {
         );
         res.status(200).json(art) 
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(200).json({message: error.message})
     }
 }
 
@@ -41,7 +41,7 @@ const getArtImage = async (req, res) => {
         res.sendFile(gambarPath);
 
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(200).json({message: error.message})
     } 
 }
 
@@ -56,7 +56,7 @@ const getArt = async (req,res) => {
         });
         res.status(200).json(art)
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(200).json({message: error.message})
     }
 }
 
@@ -66,7 +66,7 @@ const getArt = async (req,res) => {
 //         const art = await Art.create(req.body);
 //         res.status(200).json(art)
 //     } catch (error){
-//         res.status(500).json({message: error.message})
+//         res.status(200).json({message: error.message})
 //     }
 // }
 
@@ -107,7 +107,7 @@ const createArtWithImage = async (req, res) => {
         })
 
     } catch (error){
-        res.status(500).json({message: error.message})
+        res.status(200).json({message: error.message})
         console.log(error.message)
     }
 
@@ -138,7 +138,7 @@ const updateArt = async (req,res) => {
         );
         
         if (!art){
-            return res.status(500).json({message: "Art not found"});
+            return res.status(200).json({message: "Art not found"});
         }
 
         res.status(200).json({
@@ -147,7 +147,7 @@ const updateArt = async (req,res) => {
         })
 
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(200).json({message: error.message});
     }
 }
 
@@ -170,7 +170,7 @@ const deleteArt = async (req, res) => {
         })
         
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(200).json({message: error.message})
     }
 }
 
